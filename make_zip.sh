@@ -1,0 +1,1 @@
+zip -r lambda_test_function.zip venv clients.py   lambdafunctionfor_transoder.py   run_task.py   signed_url.py 
