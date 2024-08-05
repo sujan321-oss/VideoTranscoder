@@ -25,14 +25,18 @@ def lambda_handler(event,context):
   
 
     getobject_presigned_url = get_presigned_url(object_key,bucket_name,"get_object")
-    put_object_presignd_url_360p = get_presigned_url("suajn.ts",OUTPUT_BUCKET,'put_object')
-    put_object_presignd_url_480p = get_presigned_url("kp.jpeg",OUTPUT_BUCKET,'put_object')
+    put_object_presignd_url_720p = get_presigned_url(str(object_key+"_720.ts"),OUTPUT_BUCKET,'put_object')
+    put_object_presignd_url_360p = get_presigned_url(str(object_key+"_360.ts"),OUTPUT_BUCKET,'put_object')
+    put_object_presignd_url_480p = get_presigned_url(str(object_key+"_480.ts"),OUTPUT_BUCKET,'put_object')
+
     
     print(getobject_presigned_url)
     print()
     print(put_object_presignd_url_360p)
     print()
-    print(put_object_presignd_url_480p)
+    print( put_object_presignd_url_720p)
+    print(put_object_presignd_url_480p )
+    # print(put_object_presignd_url_480p)
     
     
     
@@ -45,10 +49,12 @@ def lambda_handler(event,context):
         networkConfiguration={
         'awsvpcConfiguration': {
             'subnets': [
-                'subnet-0674c54b50ab4c621',
+                
+                'subnet-06c200db60b5b55ac',
             ],
             'securityGroups': [
-                'sg-00322f624a5d37fa1',
+                'sg-020e90b8497e12a5e',
+                
             ],
             'assignPublicIp': 'ENABLED'
         }
@@ -61,14 +67,27 @@ def lambda_handler(event,context):
                 'name': 'video_transcoder',
                 'environment': [
                     {
-                        'name': 'get_object_signed_url',
+                        'name': 'get_object_signed_url_360',
                         'value': getobject_presigned_url,
                     },
                     {
-                        'name': 'put_object_signed_url',
+                        'name': 'put_object_signed_url_360',
                         'value': put_object_presignd_url_360p,
                         
-                    }
+                    },
+                    
+                    
+                    {
+                        'name': 'put_object_signed_url_480',
+                        'value': put_object_presignd_url_480p,
+                        
+                    },
+                    
+                    {
+                        'name': 'put_object_signed_url_720',
+                        'value': put_object_presignd_url_720p,
+                        
+                    },
                 ],
                
             }
@@ -90,7 +109,7 @@ def lambda_handler(event,context):
 
 
 
-# lambda_handler("","")
+
 
 
 
