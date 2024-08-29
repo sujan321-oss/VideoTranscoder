@@ -22,8 +22,8 @@ export default function Nav() {
 
 
     return (
-        <div className="  overflow-hidden">
-            <nav id="navicon" className=" mx-10   text-blue-50 flex justify-between p-4 items-center text-center overflow-hidden  ">
+        <div className="  overflow-hidden ">
+            <nav id="navicon" className=" mx-10   text-blue-50 flex justify-between p-4 items-center text-center overflow-hidden shadow-md  ">
 
                 <div>
                     100Xdevs
@@ -34,16 +34,16 @@ export default function Nav() {
                 <div className="max-md:hidden " >
                     <ul className=" flex gap-[50px] list-none">
                         <li>
-                            <Link to="/">Course</Link>
+                            <Link to="/" className="hover:text-rose-500 transition-all duration-500 ease-in-out ">Course</Link>
 
                         </li>
 
                         <li>
-                            <Link to="/testimonials">Testimonials</Link>
+                            <Link to="/testimonials" className="hover:text-rose-500 transition-all duration-500 ease-in-out">Testimonials</Link>
                         </li>
 
                         <li>
-                            <Link to="/FAQ">FAQs</Link>
+                            <Link to="/FAQ" className="hover:text-rose-500 transition-all duration-500 ease-in-out">FAQs</Link>
                         </li>
 
                     </ul>

@@ -1,0 +1,7 @@
+
+{
+    "/" : "Home",
+    "/login" : "Login",
+    "/testimonials": "Testimonials",
+    "/FAQ" : "Home"
+}
