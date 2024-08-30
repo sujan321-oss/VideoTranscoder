@@ -2,7 +2,7 @@
 import React, { useCallback, useState } from "react"
 
 export default  function useFetchContent() {
-    const [videourl, setVideoUrl] = useState<null | string>(null)
+    const [videourl, setVideoUrl] = useState<null | string[]>(null)
     const [loading , setLoading] = useState<boolean>(true)
     const [error,setError] = useState<null|string>(null)
 
@@ -16,7 +16,9 @@ export default  function useFetchContent() {
         })
             .then((data) => data.json())
             .catch((err) => setError(err))
-            .then((data) => setVideoUrl(data))
+            .then((data) => {
+                setVideoUrl(data)
+            })
             .finally(() => setLoading(false))
     }, [])
 

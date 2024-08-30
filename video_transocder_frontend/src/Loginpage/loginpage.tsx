@@ -38,7 +38,7 @@ export default function Login() {
         }
         console.log("Try to connect with the server")
 
-        fetch("http://172.22.47.37:8001/signup",
+        fetch("http://localhost:8001/signup",
             {
                 method: "POST",
                 headers: {
@@ -89,7 +89,7 @@ export default function Login() {
             try {
                 console.log(email)
                 console.log(password)
-                const res = await fetch("http://172.22.47.37:8001/login", {
+                const res = await fetch("http://localhost:8001/login", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"  // Ensure the content type is set to JSON
